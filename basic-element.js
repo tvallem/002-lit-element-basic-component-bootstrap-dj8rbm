@@ -10,8 +10,24 @@ class BasicElement extends LitElement {
       salary: { type: String },
       country: { type: String },
       employee: { type: Boolean },
-      description: { type: String }
+      description: { type: String },
+      title: {type: String},
+      panelType : {type: String}
     };
+  }
+
+  constructor() {
+    super();
+
+    // default values can be set from the constructor
+    this.name = "Nombre";
+    this.age = 18;
+    this.salary = "Sueldo";
+    this.country = "Spain";
+    this.employee = false;
+    this.description = "Descripción";
+    this.title = "My card";
+    this.panelType = "primary"
   }
 
   createRenderRoot() {
@@ -20,7 +36,7 @@ class BasicElement extends LitElement {
   render(){
     return html`
         <div class="card">
-          <h4 class="card-header bg-primary text-white ">Basic component by y</h4>
+          <h4 class="card-header bg-${this.panelType} text-white ">${this.title}</h4>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">Name: ${this.name}</li>
               <li class="list-group-item">Age: ${this.age}</li>
